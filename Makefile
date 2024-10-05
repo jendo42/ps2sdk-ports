@@ -61,7 +61,7 @@ clean-cmakelibs:
 libconfuse:
 	./fetch.sh v3.3 https://github.com/libconfuse/libconfuse
 	cd build/$@ && ./autogen.sh
-	cd build/$@ && CFLAGS_FOR_TARGET="-G0 -O2 -gdwarf-2 -gz" ./configure --host=mips64r5900el-ps2-elf --prefix=${PS2SDK}/ports --disable-shared --disable-examples
+	cd build/$@ && CFLAGS_FOR_TARGET="-G0 -O2 -gdwarf-2 -gz" ./configure --quiet --no-recursion --cache-file=build.cache --host=mips64r5900el-ps2-elf --prefix=${PS2SDK}/ports --disable-shared --disable-examples
 	$(MAKE) -C build/$@ all
 	$(MAKE) -C build/$@ install
 
